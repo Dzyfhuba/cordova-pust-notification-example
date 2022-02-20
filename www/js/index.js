@@ -19,6 +19,7 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
+window.$ = window.JQuery = require('jquery');
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
@@ -55,3 +56,12 @@ function GetMessageFromGCM() {
         alert(e);
     }
 }
+
+$(function() {
+    $('#register').on('click', function() {
+        RegisterWithFCM();
+    });
+    $('#get').on('click', function() {
+        GetMessageFromGCM();
+    });
+})
